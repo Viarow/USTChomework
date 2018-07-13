@@ -27,7 +27,7 @@ export default new Router({
         {
           path:'/task',
           component: resolve => require(['../components/page/Task.vue'], resolve),
-          meta: { title: '作业一' },
+          meta: { title: '本次作业' },
         },
 
         // {
@@ -55,7 +55,7 @@ export default new Router({
         {
           path: '/giveScores',
           component: resolve => require(['../components/page/GiveScores.vue'], resolve),
-
+          meta: { title: '评分界面' }
         }
       ]
     },
@@ -82,7 +82,7 @@ export default new Router({
         },
         {
           path:'/myScores',
-          component:resolve => require(['../components/page/StudentPort/Scores.vue'], resolve),
+          component:resolve => require(['../components/page/StudentPort/GradesReport.vue'], resolve),
           meta: { title: '我的成绩' }
         },
         {
