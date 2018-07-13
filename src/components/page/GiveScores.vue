@@ -8,12 +8,16 @@
         <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
       </div>
       <el-row>
-        <el-col :span="12"><div class="grid-content bg-purple-light">学生一号</div></el-col>
-        <el-col :span="12"><div class="grid-content bg-purple-light">PB16061234</div></el-col>
+        <el-col :span="24"><div class="grid-content bg-purple-light">学生一号</div></el-col>
       </el-row>
       <el-row>
-        <el-col :span="12"><div class="grid-content bg-purple-light">2018-7-12</div></el-col>
-        <el-col :span="12"><div class="grid-content bg-purple-light">原子物理复习要点</div></el-col>
+        <el-col :span="24"><div class="grid-content bg-purple-light">PB16061234</div></el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="24"><div class="grid-content bg-purple-light">2018-7-12 23:59</div></el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="24"><div class="grid-content bg-purple-light">原子物理复习要点</div></el-col>
       </el-row>
     </el-card>
   </div>
