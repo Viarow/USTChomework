@@ -1,19 +1,55 @@
 <template>
     <div>
+      <h2 id="title">作业名称</h2>
 
       <!--作业要求-->
       <div>
       <el-collapse v-model="activeNames" @change="handleChange">
         <el-collapse-item title="  作业要求" name="1" >
-          <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-          <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+          <div id="rules">与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
+            在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+          <!--<div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>-->
         </el-collapse-item>
 
         <el-collapse-item title="  截止日期" name="2">
-        <div>2018-6-30</div>
+        <div id="deadline">2018-6-30 23:59</div>
       </el-collapse-item>
 
       </el-collapse>
+      </div>
+
+      <!--修改作业要求-->
+      <div class="amendment">
+        <el-button type="text" @click="ruleFormVisible = true">点击修改</el-button>
+        <el-dialog title="修改作业要求" :visible.sync="ruleFormVisible">
+          <el-form :model="ruleForm">
+            <el-form-item label="作业名称" >
+              <el-input v-model="ruleForm.name" auto-complete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="作业要求">
+              <el-input
+                type="textarea"
+                :rows="3"
+                placeholder="请输入内容"
+                v-model="ruleForm.rules">
+              </el-input>
+            </el-form-item>
+            <el-form-item label="截止日期">
+              <el-date-picker
+                v-model="ruleForm.ddl"
+                value-format="yyyy-MM-dd hh:mm"
+                type="datetime"
+                placeholder="选择日期时间">
+              </el-date-picker>
+            </el-form-item>
+          </el-form>
+
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="ruleFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="amendment(ruleFormVisible,ruleForm)">确 定</el-button>
+          </div>
+
+        </el-dialog>
       </div>
 
       <!--班级成员-->
@@ -191,7 +227,14 @@
           },{
             name:'胖虎',
             number:'PB16060141',
-          }]
+          }],
+
+          ruleFormVisible: false,
+          ruleForm:{
+            name:'',
+            rules:'',
+            ddl:''
+          }
 
         }
       },
@@ -225,6 +268,12 @@
             status:'未加入'
           }
           this.memberTable.push(obj);
+        },
+        amendment(ruleFormVisible,ruleForm){
+          this.ruleFormVisible = false;
+          document.getElementById("title").innerHTML=ruleForm.name;
+          document.getElementById("rules").innerHTML=ruleForm.rules;
+          document.getElementById("deadline").innerHTML=ruleForm.ddl;
         }
       }
 
@@ -237,4 +286,10 @@
      left:1000px;
      top:0px
    }
+  .amendment{
+    position:relative;
+    left:1000px;
+    top:0px
+  }
 </style>
+
