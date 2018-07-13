@@ -1,58 +1,61 @@
 <template>
   <div>
     <div>
-      <h3>待交作业</h3>
-      <el-table
-        :data="myTaskTable"
-        style="width: 100%"
-        max-height="400">
-        <el-table-column
-          prop="name"
-          label="作业名称"
-          width="300">
-        </el-table-column>
-        <el-table-column
-          prop="deadline"
-          label="截止日期"
-          width="500">
-        </el-table-column>
+      <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse-item title="  作业要求" name="1" class="text">
+          <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
+            在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+          <!--<div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>-->
+        </el-collapse-item>
 
-        <el-table-column>
-          fixed="right"
-          label="操作"
-          width="120">
-          <template slot-scope="scope">
-            <el-button
-              @click.native.prevent="viewRequirements"
-              type="text"
-              size="small">
-              作业要求
-            </el-button>
+        <el-collapse-item title="  截止日期" name="2" class="text">
+          <div>2018-6-30 23:59</div>
+        </el-collapse-item>
 
-            <el-button
-              @click.native.prevent="submitHomework"
-              type="primary"
-              icon="el-icon-message"
-              size="small">
-              提交作业
-            </el-button>
-          </template>
-        </el-table-column>
-
-      </el-table>
+      </el-collapse>
     </div>
 
+    <div>
+      <el-form ref="form" :model="form" label-width="80px" class="submitForm">
+        <el-form-item label="作业标题" class="title">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="作业标题">
+          <el-upload
+            class="upload-demo"
+            drag
+            action="/api/posts/"
+            multiple>
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+          </el-upload>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submit">提交</el-button>
+          <el-button>取消</el-button>
+        </el-form-item>
 
+
+      </el-form>
+    </div>
 
   </div>
 </template>
 
 <script>
     export default {
-        name: "myHomework",
+
+        name: "SubmitPage",
+      data(){
+        return{
+          form:{
+            name:''
+          }
+        }
+      },
       methods:{
-          viewRequirements(){
-            this.$alert('请考生结合材料进行分析。自定立意、自拟标题，写一段作文。', '作业要求', {
+          submit(){
+            this.$alert('提交成功', '系统提示', {
               confirmButtonText: '确定',
               // callback: action => {
               //   this.$message({
@@ -61,34 +64,22 @@
               //   });
               // }
             });
-          },
-        submitHomework(){
-          this.$router.push('/submitHomework')
-
         }
-      },
-      data(){
-          return{
-            myTaskTable:[
-              {
-                name:'重要思想概论',
-                deadline:'2018-6-30 23:59',
-               
-              },{
-               name:'美术鉴赏',
-                deadline:'2018-6-30 23:59',
-
-              },{
-               name:'基础乐理',
-               deadline:'2018-6-30 23:59',
-
-              }
-            ]
-          }
       }
     }
 </script>
 
 <style scoped>
 
+  .text{
+    text-align: center;
+  }
+  .submitForm{
+    position:relative;
+    left:100px;
+    top:50px
+  }
+  .title{
+  width:80%
+  }
 </style>
