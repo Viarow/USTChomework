@@ -35,11 +35,11 @@
               index: 'homework',
               title: '批改作业'
             },
-            {
-              icon: 'el-icon-star-off',
-              index: 'members',
-              title: '班级成员'
-            },
+           // {
+            //   icon: 'el-icon-star-off',
+            //   index: 'members',
+            //   title: '班级成员'
+            // },
             {
               icon: 'el-icon-upload',
               index: 'files',
