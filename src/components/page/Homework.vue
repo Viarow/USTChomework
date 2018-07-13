@@ -16,6 +16,11 @@
       width="150">
     </el-table-column>
     <el-table-column
+      prop="onlist"
+      label="应交人数"
+      width="150">
+    </el-table-column>
+    <el-table-column
       prop="submitted"
       label="已交人数"
       width="150">
@@ -110,16 +115,19 @@
           taskTable:[{
             name:'作业一',
             deadline:'2018-8-8',
+            onlist:60,
             submitted:60,
             checked:10
           },{
             name:'作业二',
             deadline:'2018-8-8',
+            onlist:60,
             submitted:60,
             checked:10
           },{
             name:'作业三',
             deadline:'2018-8-8',
+            onlist:60,
             submitted:60,
             checked:10
           }],
