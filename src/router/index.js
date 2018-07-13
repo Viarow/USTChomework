@@ -30,11 +30,11 @@ export default new Router({
           meta: { title: '作业一' },
         },
 
-        {
-          path: '/members',
-          component: resolve => require(['../components/page/Members.vue'], resolve),
-          meta: { title: '班级成员' }
-        },
+        // {
+        //   path: '/members',
+        //   component: resolve => require(['../components/page/Members.vue'], resolve),
+        //   meta: { title: '班级成员' }
+        // },
 
         {
           path: '/files',
