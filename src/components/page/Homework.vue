@@ -72,7 +72,7 @@
         <el-form-item label="截止日期">
           <el-date-picker
             v-model="form.ddl"
-            value-format="yyyy-MM-dd"
+            value-format="yyyy-MM-dd hh:mm"
             type="datetime"
             placeholder="选择日期时间">
           </el-date-picker>
@@ -104,6 +104,7 @@
           let obj={
             name:form.name,
             deadline:form.ddl,
+            onlist:60,
             submitted:0,
             checked:0
           }
@@ -114,19 +115,19 @@
         return{
           taskTable:[{
             name:'作业一',
-            deadline:'2018-8-8',
+            deadline:'2018-8-8 23:59',
             onlist:60,
             submitted:60,
             checked:10
           },{
             name:'作业二',
-            deadline:'2018-8-8',
+            deadline:'2018-8-8 23:59',
             onlist:60,
             submitted:60,
             checked:10
           },{
             name:'作业三',
-            deadline:'2018-8-8',
+            deadline:'2018-8-8 23:59',
             onlist:60,
             submitted:60,
             checked:10
@@ -145,6 +146,5 @@
 <style scoped>
 
 </style>
-
 
 
