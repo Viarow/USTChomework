@@ -7,14 +7,19 @@
       <el-form-item class="login" label="登录邮箱">
         <div >
 
-          <el-input placeholder="请输入邮箱" v-model="input5" class="input-with-select">
-            <el-select v-model="select" slot="append" placeholder="请选择">
-              <el-option label="@mail.ustc.edu.cn" value="1"></el-option>
-              <el-option label="@ustc.edu.cn" value="2"></el-option>
+          <el-input placeholder="请输入邮箱" v-model="loginEmail" class="input-with-select">
 
-            </el-select>
 
           </el-input>
+          <el-select v-model="value" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+
 
         </div>
 
@@ -55,7 +60,14 @@
           loginPassword: '',
           select: ''
         },
-        input5: '',
+        options: [{
+          value: '选项1',
+          label: '@ustc.edu.cn'
+        }, {
+          value: '选项2',
+          label: '@mail.ustc.edu.cn'
+        }],
+        value: ''
 
 
       }
@@ -78,6 +90,6 @@
     top:200px
   }
   .login{
-    width: 30%;
+    width: 50%;
   }
 </style>
