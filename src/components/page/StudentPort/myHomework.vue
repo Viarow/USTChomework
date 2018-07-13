@@ -72,15 +72,15 @@
             myTaskTable:[
               {
                 name:'重要思想概论',
-                deadline:'2018-6-30',
-
+                deadline:'2018-6-30 23:59',
+               
               },{
                name:'美术鉴赏',
-                deadline:'2018-6-30',
+                deadline:'2018-6-30 23:59',
 
               },{
                name:'基础乐理',
-               deadline:'2018-6-30',
+               deadline:'2018-6-30 23:59',
 
               }
             ]
